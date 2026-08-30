@@ -1,6 +1,6 @@
 - name: create ec2instance
   hosts: local
-  conenction: local
+  connection: local
   vars:
     sg_id: sg-0086f84e96346aae4
     ami_id: ami-0220d79f3f480ecf5
