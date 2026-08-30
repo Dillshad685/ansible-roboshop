@@ -22,7 +22,7 @@
         register: ec2-output
   - name: print the ec2-output 
     ansible.builtin.debug:
-    msg: "{{ ec2-output }}"
+      msg: "{{ ec2-output }}"
   - name: print public IP
     ansible.builtin.debug:
       msg: "{{ item.instances[0].public_ip_address }}" # as per the ec2-output file public IP present in items -> first value 
