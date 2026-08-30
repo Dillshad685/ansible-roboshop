@@ -4,7 +4,7 @@
   vars:
     sg_id: sg-0086f84e96346aae4
     ami_id: ami-0220d79f3f480ecf5
-    zone_id:
+    zone_id: Z07239883RO0YEZWE39GW
     domain_name: dillshad.space
     instances:
     - mongodb
