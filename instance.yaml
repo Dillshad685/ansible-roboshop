@@ -7,8 +7,8 @@
     zone_id: Z07239883RO0YEZWE39GW
     domain_name: dillshad.space
     instances:
-    - mongodb
-    - redis
+    # - mongodb
+    # - redis
   tasks:
   - name: create instance
     amazon.aws.ec2_instance:
