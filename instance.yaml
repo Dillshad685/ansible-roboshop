@@ -27,3 +27,24 @@
     ansible.builtin.debug:
       msg: "{{ item.instances[0].public_ip_address }}" # as per the ec2-output file public IP present in items -> first value 
     loop: "{{ ec2_output.results }}" # as per the file of ec2-output publicIP present inside the results 
+  - name: create r53 record
+    amazon.aws.route53:
+      state: present
+      zone: "{{ domain_name }}"
+      record: "{{ item.item }}.{{ domain_name }}" # mongodb.dillshad.space
+      type: A
+      ttl: 1
+      value: "{{ item.instances[0].private_ip_address }}"
+      overwrite: true
+    loop: "{{ ec2_output.results }}"
+  - name: create r53 for frontend
+    amazon.aws.route53:
+      state: present
+      zone: "{{ domain_name }}"
+      record: "{{ item.item }}.{{ domain_name }}"
+      type: A 
+      ttl: 1
+      value: "{{ item.instance[0].public_ip_address }}"
+      overwrite: yes
+      when: item.item == "frontend"
+      loop: "{{ ec2_output.results }}"
