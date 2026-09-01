@@ -18,7 +18,7 @@
   - name: create and provide service to user
     community.rabbitmq.rabbitmq_user:
       user: roboshop
-      Password: roboshop123
+      password: roboshop123
       permissions:
         - vhost: /
           configure_priv: .*
