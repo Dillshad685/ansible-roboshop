@@ -3,16 +3,16 @@
   become: yes
   tasks:
     - name: disable default nodejs
-      ansible.builtin.command: dnf module disable nodejs -yes
+      ansible.builtin.command: dnf module disable nodejs -y
     - name: enable nodejs 20
-      ansbile.builtin.command: dnf module enable noejs:20 -yes
+      ansbile.builtin.command: dnf module enable noejs:20 -y
     - name: install nodejs
       ansible.builtin.package:
         name: nodejs
         state: present
     - name: create roboshop user
       ansible.builtin.user:
-        name: roboshop system user
+        name: roboshop
         comment: create roboshop user
         system: true
         shell: /sbin/nologin
@@ -23,7 +23,7 @@
         state: absent
     - name: create app directory
       ansible.builtin.file:
-        state: present
+        state: directory
         path: /app
     - name: delete user file if present
       ansible.builtin.file:
@@ -43,8 +43,8 @@
         path: /app
     - name: copy user services
       ansible.builtin.copy:
-      src: user.service
-      dest: /etc/systemd/system/user.service
+        src: user.service
+        dest: /etc/systemd/system/user.service
       ansible.builtin.systemd_services:
         name: user
         enabled: true
