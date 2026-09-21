@@ -50,7 +50,7 @@
         chdir: /app
     - name: move jar file
       ansible.builtin.command:
-        mv /target/shipping-0.1.jar shipping.jar
+        mv target/shipping-0.1.jar shipping.jar
       args:
         chdir: /app
     - name: copy shipping service
@@ -63,7 +63,7 @@
         name: all
         login_host: mysql.dillshad.space
         login_user: root
-        login_password: RoboShop@01
+        login_password: RoboShop@1
         target: "{{ item }}"
       loop:
         - /app/db/schema.sql
@@ -75,6 +75,6 @@
         enabled: true
         state: started
         daemon_reload: true
-        
+
        
         
