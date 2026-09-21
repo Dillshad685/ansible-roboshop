@@ -2,9 +2,9 @@
   hosts: local
   connection: local
   vars:
-    sg_id: sg-0086f84e96346aae4
+    sg_id: sg-006aa647aaae5e2ce
     ami_id: ami-0220d79f3f480ecf5
-    zone_id: Z07239883RO0YEZWE39GW
+    zone_id: Z0052297OSQD07R4N2HT
     domain_name: dillshad.space
     # instances:
     # - mongodb
@@ -44,7 +44,7 @@
       record: "{{ item.item }}.{{ domain_name }}"
       type: A 
       ttl: 1
-      value: "{{ item.instance[0].public_ip_address }}"
+      value: "{{ item.instances[0].public_ip_address }}"
       overwrite: yes
     when: item.item == "frontend"
     loop: "{{ ec2_output.results }}"
