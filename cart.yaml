@@ -41,6 +41,7 @@
     - name: install dependencies
       community.general.npm:
         path: /app
+    - name: start and enable cart
       ansible.builtin.systemd_services:
         name: cart
         enabled: true
