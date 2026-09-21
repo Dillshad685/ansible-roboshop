@@ -42,7 +42,7 @@
       community.general.npm:
         path: /app
     - name: start and enable cart
-      ansible.builtin.systemd_services:
+      ansible.builtin.systemd_service:
         name: cart
         enabled: true
         state: started
