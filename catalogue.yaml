@@ -43,8 +43,8 @@
         path: /app
     - name: copy catalogue services
       ansible.builtin.copy:
-      src: catalogue.service
-      dest: /etc/systemd/system/catalogue.service
+        src: catalogue.service
+        dest: /etc/systemd/system/catalogue.service
     - name: copy mongo repo
       ansible.builtin.copy:
         src: mongo.repo
