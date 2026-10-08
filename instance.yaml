@@ -5,7 +5,7 @@
     sg_id: sg-006aa647aaae5e2ce
     ami_id: ami-0220d79f3f480ecf5
     zone_id: Z0052297OSQD07R4N2HT
-    domain_name: dillshad.space
+    domain_name: dillshad.shop
     # instances:
     # - mongodb
     # - redis
@@ -31,7 +31,7 @@
     amazon.aws.route53:
       state: present
       zone: "{{ domain_name }}"
-      record: "{{ item.item }}.{{ domain_name }}" # mongodb.dillshad.space
+      record: "{{ item.item }}.{{ domain_name }}" # mongodb.dillshad.shop
       type: A
       ttl: 1
       value: "{{ item.instances[0].private_ip_address }}"
