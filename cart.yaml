@@ -41,6 +41,10 @@
     - name: install dependencies
       community.general.npm:
         path: /app
+    - name: copy services
+      ansible.builtin.copy:
+        src: cart.service
+        dest: /etc/systemd/system/cart.service
     - name: start and enable cart
       ansible.builtin.systemd_service:
         name: cart
